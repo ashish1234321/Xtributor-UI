@@ -144,13 +144,8 @@ export default function Lifecycle() {
                         <currentTab.icon className="h-6 w-6" />
                       </div>
                       <div>
-                        <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1 tracking-tight">Active Engine</div>
                         <div className="text-lg font-black text-slate-900">{currentTab.subtitle}</div>
                       </div>
-                    </div>
-                    <div className="flex items-center gap-2 px-3 py-1 bg-emerald-100 rounded-full border border-emerald-200">
-                      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-                      <span className="text-[9px] font-black text-emerald-600 uppercase tracking-widest">Running</span>
                     </div>
                   </div>
 

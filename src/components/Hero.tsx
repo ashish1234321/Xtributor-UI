@@ -8,6 +8,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { View } from '../types';
 
 import { BackgroundAnimation } from './BackgroundAnimation';
+import { InteractiveBackground } from './InteractiveBackground';
 
 interface HeroProps {
   onNavigate: (view: View) => void;
@@ -15,8 +16,9 @@ interface HeroProps {
 
 export default function Hero({ onNavigate }: HeroProps) {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden" id="hero">
+    <section className="relative pt-32 pb-20 overflow-hidden group" id="hero">
       <BackgroundAnimation />
+      <InteractiveBackground />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div

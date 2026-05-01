@@ -4,7 +4,7 @@
  */
 
 import { motion } from 'motion/react';
-import { Lock, Mail, User, ArrowLeft, ArrowRight, Building2, Globe, Phone, Briefcase, MapPin } from 'lucide-react';
+import { Lock, Mail, User, ArrowLeft, ArrowRight, Building2, Globe, Phone, Briefcase, MapPin, ChevronDown } from 'lucide-react';
 import { View } from '../types';
 
 interface AuthProps {
@@ -22,6 +22,24 @@ const FormInput = ({ label, placeholder, type = "text", icon: Icon }: any) => (
         placeholder={placeholder}
         className={`w-full ${Icon ? 'pl-10' : 'px-4'} pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600/10 focus:border-indigo-600 transition-all font-sans text-sm font-medium`}
       />
+    </div>
+  </div>
+);
+
+const FormSelect = ({ label, options, icon: Icon }: any) => (
+  <div>
+    <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5 ml-1">{label}</label>
+    <div className="relative">
+      {Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />}
+      <select 
+        className={`w-full ${Icon ? 'pl-10' : 'px-4'} pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600/10 focus:border-indigo-600 transition-all font-sans text-sm font-medium appearance-none cursor-pointer`}
+      >
+        <option value="" disabled selected>Select {label.replace(' *', '')}</option>
+        {options.map((opt: string) => (
+          <option key={opt} value={opt}>{opt}</option>
+        ))}
+      </select>
+      <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
     </div>
   </div>
 );
@@ -88,12 +106,25 @@ export default function Auth({ mode, onNavigate }: AuthProps) {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <FormInput label="Role / Designation *" placeholder="Your Role" icon={Briefcase} />
-                  <FormInput label="Country *" placeholder="Select Country" icon={Globe} />
+                  <FormSelect 
+                    label="Role / Designation *" 
+                    icon={Briefcase} 
+                    options={["CEO / Founder", "CTO", "Sales Manager", "IT Director", "Business Development", "Operations Manager", "Other"]}
+                  />
+                  <FormSelect 
+                    label="Country *" 
+                    icon={Globe} 
+                    options={["India", "United States", "United Arab Emirates", "Singapore", "United Kingdom", "Australia", "Canada"]}
+                  />
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="md:col-span-1 border-none"><FormInput label="State *" placeholder="State" /></div>
+                  <div className="md:col-span-1 border-none">
+                    <FormSelect 
+                      label="State *" 
+                      options={["Rajasthan", "Delhi", "Maharashtra", "Karnataka", "California", "New York", "Texas", "Dubai", "Other"]}
+                    />
+                  </div>
                   <div className="md:col-span-1"><FormInput label="City *" placeholder="City" /></div>
                   <div className="md:col-span-1"><FormInput label="Postal Code" placeholder="000000" /></div>
                   <div className="md:col-span-1"><FormInput label="Phone *" placeholder="Phone Number" icon={Phone} /></div>
@@ -161,7 +192,12 @@ export default function Auth({ mode, onNavigate }: AuthProps) {
             </h3>
             <div className="flex items-center space-x-4">
               <div className="h-12 w-12 rounded-full bg-indigo-500 overflow-hidden border-2 border-indigo-400">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100" alt="Avatar" />
+                <img 
+                  src="https://xtributor.com/img/3-rajeev.png" 
+                  alt="Rajeev Vij"
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <div>
                 <div className="font-extrabold">Rajeev Vij</div>

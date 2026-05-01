@@ -5,6 +5,7 @@
 
 import { motion } from 'motion/react';
 import { TrendingUp, Settings, BarChart3, Receipt } from 'lucide-react';
+import { InteractiveBackground } from './InteractiveBackground';
 
 const CHALLENGES = [
   {
@@ -31,7 +32,8 @@ const CHALLENGES = [
 
 export default function Challenges() {
   return (
-    <section className="py-20 bg-slate-900 overflow-hidden relative" id="challenges">
+    <section className="py-20 bg-slate-900 overflow-hidden relative group" id="challenges">
+      <InteractiveBackground />
       {/* Decorative background element */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 

@@ -7,16 +7,17 @@ import { motion } from 'motion/react';
 import { BackgroundAnimation } from './BackgroundAnimation';
 
 const LOGOS = [
-  "Microsoft", "Azure", "Office 365", "AWS", "Google Cloud", 
-  "Stripe", "PayPal", "Xero", "QuickBooks", "Salesforce",
-  "Slack", "Zoom", "HubSpot", "Zendesk"
+  { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
+  { name: "PayPal", url: "https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" },
+  { name: "Stripe", url: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" },
+  { name: "QuickBooks", url: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Intuit_QuickBooks_logo.svg" }
 ];
 
 export default function Integrations() {
   return (
     <section className="py-24 bg-slate-50 overflow-hidden border-y border-slate-100 relative" id="integrations">
       <BackgroundAnimation />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -25,36 +26,35 @@ export default function Integrations() {
         >
           POWERFUL CLOUD INTEGRATIONS
         </motion.div>
+        
         <motion.h2 
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight"
+          className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-16"
         >
           Works with your <span className="text-indigo-600">Favorite ecosystem</span>
         </motion.h2>
-      </div>
 
-      <div className="relative flex overflow-x-hidden">
-        <motion.div 
-          animate={{ x: [0, -100 * LOGOS.length] }}
-          transition={{ 
-            duration: 40, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-          className="flex whitespace-nowrap gap-6 items-center"
-        >
-          {/* Double the logos for seamless loop */}
-          {[...LOGOS, ...LOGOS].map((logo, i) => (
-            <div 
-              key={i} 
-              className="flex items-center justify-center px-8 py-4 bg-white rounded-lg border border-slate-100 shadow-sm text-slate-900 font-bold tracking-tight text-lg"
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-5xl mx-auto">
+          {LOGOS.map((logo, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex items-center justify-center p-8 bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:scale-105 transition-transform hover:border-indigo-100 h-32"
             >
-              {logo}
-            </div>
+              <img 
+                src={logo.url} 
+                alt={logo.name} 
+                className="h-8 md:h-10 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
