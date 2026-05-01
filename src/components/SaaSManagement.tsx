@@ -50,7 +50,7 @@ export default function SaaSManagement() {
             viewport={{ once: true }}
             className="inline-flex items-center px-4 py-1.5 rounded-full bg-slate-900 border border-slate-800 mb-8"
           >
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400">
+            <span className="text-xs font-black uppercase tracking-[0.3em] text-indigo-400">
               SEAMLESSLY SELL YOUR SAAS SOFTWARE GLOBALLY
             </span>
           </motion.div>
@@ -77,7 +77,7 @@ export default function SaaSManagement() {
             Xtributor helps you build a marketplace, bill the customers at custom pricing on a recurring basis, get consistent revenue, reduce customer churn, and manage their transactions and subscription cycles.
           </motion.p>
           
-          <div className="mt-4 text-[10px] font-black text-slate-600 uppercase tracking-widest flex items-center justify-center gap-4">
+          <div className="mt-4 text-xs font-black text-slate-600 uppercase tracking-widest flex items-center justify-center gap-4">
              <span className="h-px w-8 bg-slate-800" />
              saas subscription billing management isvs
              <span className="h-px w-8 bg-slate-800" />
@@ -92,9 +92,16 @@ export default function SaaSManagement() {
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ 
+                  y: -10, 
+                  scale: 1.02,
+                  rotateX: 2,
+                  rotateY: 5,
+                  transition: { duration: 0.2 }
+                }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-[2.5rem] bg-slate-900/50 border border-slate-800/50 hover:border-indigo-500/30 transition-all group"
+                className="p-8 rounded-[2.5rem] bg-slate-900/50 border border-slate-800/50 hover:border-indigo-500/40 transition-shadow group relative perspective-1000 shadow-lg hover:shadow-indigo-500/10"
               >
                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg ${
                   feature.color === 'blue' ? 'bg-blue-600/20 text-blue-400' :
@@ -127,7 +134,7 @@ export default function SaaSManagement() {
                 {/* Visual Header */}
                 <div className="flex items-center justify-between mb-12">
                   <div>
-                    <div className="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-1">Global Dashboard</div>
+                    <div className="text-xs font-black text-indigo-400 uppercase tracking-widest mb-1">Global Dashboard</div>
                     <div className="text-2xl font-black text-white blur-sm select-none animate-pulse">$142,500 <span className="text-xs text-emerald-400">MRR</span></div>
                   </div>
                   <div className="p-3 bg-white/5 rounded-2xl">
@@ -155,11 +162,11 @@ export default function SaaSManagement() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-5 bg-white/5 border border-white/5 rounded-2xl">
-                      <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-2">Churn Rate</div>
+                      <div className="text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Churn Rate</div>
                       <div className="text-xl font-black text-emerald-400 blur-sm select-none animate-pulse">0.8%</div>
                     </div>
                     <div className="p-5 bg-white/5 border border-white/5 rounded-2xl">
-                      <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-2">ISV Nodes</div>
+                      <div className="text-xs font-black text-slate-500 uppercase tracking-widest mb-2">ISV Nodes</div>
                       <div className="text-xl font-black text-white blur-sm select-none animate-pulse">42</div>
                     </div>
                   </div>

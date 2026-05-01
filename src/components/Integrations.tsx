@@ -10,7 +10,7 @@ const LOGOS = [
   { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
   { name: "PayPal", url: "https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" },
   { name: "Stripe", url: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" },
-  { name: "QuickBooks", url: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Intuit_QuickBooks_logo.svg" }
+  { name: "QuickBooks", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Intuit_QuickBooks_logo.svg/3840px-Intuit_QuickBooks_logo.svg.png" }
 ];
 
 export default function Integrations() {
@@ -24,7 +24,7 @@ export default function Integrations() {
           viewport={{ once: true }}
           className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-widest mb-4 border border-indigo-100"
         >
-          POWERFUL CLOUD INTEGRATIONS
+          ACHIEVE MORE WITH SUBSCRIPTION BILLING SOFTWARE
         </motion.div>
         
         <motion.h2 
@@ -33,7 +33,7 @@ export default function Integrations() {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-16"
         >
-          Works with your <span className="text-indigo-600">Favorite ecosystem</span>
+          Xtributor's <span className="text-indigo-600">Powerful Integrations</span>
         </motion.h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-5xl mx-auto">
@@ -49,7 +49,7 @@ export default function Integrations() {
               <img 
                 src={logo.url} 
                 alt={logo.name} 
-                className="h-8 md:h-10 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                className="h-8 md:h-10 w-auto object-contain transition-all duration-300"
                 referrerPolicy="no-referrer"
               />
             </motion.div>

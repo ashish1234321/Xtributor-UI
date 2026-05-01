@@ -113,10 +113,10 @@ export default function Lifecycle() {
                 </p>
                 
                 <div className="space-y-4">
-                  <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Key Modules</div>
+                  <div className="text-xs font-black text-slate-400 uppercase tracking-widest">Key Modules</div>
                   <div className="flex flex-wrap gap-2">
                     {currentTab.data.map((cat, i) => (
-                      <span key={i} className="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-[10px] font-black uppercase tracking-wider">
+                      <span key={i} className="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs font-black uppercase tracking-wider">
                         {cat.title}
                       </span>
                     ))}
@@ -127,10 +127,10 @@ export default function Lifecycle() {
               <div className="p-6 rounded-[2rem] bg-indigo-600 text-white shadow-xl shadow-indigo-200">
                 <div className="flex items-center gap-3 mb-2">
                   <PieChart className="h-5 w-5 text-indigo-200" />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-indigo-100">Live Efficiency</span>
+                  <span className="text-xs font-black uppercase tracking-widest text-indigo-100">Live Efficiency</span>
                 </div>
                 <div className="text-2xl font-black mb-1">99.9%</div>
-                <div className="text-[9px] font-bold text-indigo-200 uppercase tracking-widest">Automation Success Rate</div>
+                <div className="text-xs font-bold text-indigo-200 uppercase tracking-widest">Automation Success Rate</div>
               </div>
             </div>
 
@@ -172,7 +172,7 @@ export default function Lifecycle() {
                                 <div className="w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
                                   <Check className="h-3 w-3" />
                                 </div>
-                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{item}</span>
+                                <span className="text-xs font-black text-slate-500 uppercase tracking-widest">{item}</span>
                               </div>
                               <div className="h-1 w-8 bg-indigo-100 rounded-full overflow-hidden group-hover:w-16 transition-all duration-500">
                                 <motion.div 

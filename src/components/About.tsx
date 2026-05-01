@@ -62,12 +62,12 @@ export default function About() {
               <div className="flex space-x-8">
                 <div>
                   <div className="text-3xl font-extrabold text-indigo-600">20+</div>
-                  <div className="text-[10px] text-slate-400 uppercase tracking-widest font-black">Years Experience</div>
+                  <div className="text-xs text-slate-400 uppercase tracking-widest font-black">Years Experience</div>
                 </div>
                 <div className="w-px h-12 bg-slate-100"></div>
                 <div>
                   <div className="text-3xl font-extrabold text-indigo-600">500+</div>
-                  <div className="text-[10px] text-slate-400 uppercase tracking-widest font-black">Resellers Enabled</div>
+                  <div className="text-xs text-slate-400 uppercase tracking-widest font-black">Resellers Enabled</div>
                 </div>
               </div>
             </div>

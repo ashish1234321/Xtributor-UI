@@ -51,6 +51,7 @@ export default function Features() {
                 key={feature.id}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ rotate: 1.5, scale: 1.02 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.05 }}
                 className="group p-6 bg-slate-50/50 rounded-2xl border border-slate-100/10 hover:bg-white hover:border-indigo-200 hover:shadow-xl hover:shadow-slate-200/50 transition-all cursor-default"
@@ -60,7 +61,7 @@ export default function Features() {
                   {IconComponent && <IconComponent className="h-5 w-5" />}
                 </div>
                 <h3 className="text-sm font-black text-slate-900 mb-2 uppercase tracking-tight leading-snug">{feature.title}</h3>
-                <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
+                <p className="text-xs text-slate-500 leading-relaxed font-medium">
                   {feature.description}
                 </p>
               </motion.div>

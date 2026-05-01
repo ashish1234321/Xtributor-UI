@@ -64,7 +64,7 @@ export default function Loader() {
           transition={{ delay: 0.5 }}
           className="flex flex-col items-center"
         >
-          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">
+          <span className="text-xs font-black uppercase tracking-[0.4em] text-slate-400">
             Xtributor Cloud
           </span>
           <motion.span 

@@ -14,7 +14,7 @@ interface AuthProps {
 
 const FormInput = ({ label, placeholder, type = "text", icon: Icon }: any) => (
   <div>
-    <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5 ml-1">{label}</label>
+    <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-1.5 ml-1">{label}</label>
     <div className="relative">
       {Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />}
       <input 
@@ -28,7 +28,7 @@ const FormInput = ({ label, placeholder, type = "text", icon: Icon }: any) => (
 
 const FormSelect = ({ label, options, icon: Icon }: any) => (
   <div>
-    <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5 ml-1">{label}</label>
+    <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-1.5 ml-1">{label}</label>
     <div className="relative">
       {Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />}
       <select 
@@ -134,7 +134,7 @@ export default function Auth({ mode, onNavigate }: AuthProps) {
                   <div className="flex-shrink-0 mt-1">
                     <input type="checkbox" required className="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300 rounded cursor-pointer" />
                   </div>
-                  <p className="text-[10px] text-slate-500 leading-relaxed font-semibold italic">
+                  <p className="text-xs text-slate-500 leading-relaxed font-semibold italic">
                     By clicking this, you agree and understand that Xtributor and its associate brands may use this information to communicate with you for this or any other future promotional offers. Your information is stored securely and not shared anywhere else. Submitting this form does not guarantee invite to Xtributor platform. Our team will evaluate your information and then provide access to a select group of sellers the opportunity to kick-start with free access to Xtributor platform.
                   </p>
                 </div>
@@ -201,7 +201,7 @@ export default function Auth({ mode, onNavigate }: AuthProps) {
               </div>
               <div>
                 <div className="font-extrabold">Rajeev Vij</div>
-                <div className="text-indigo-400 text-[10px] font-black uppercase tracking-widest">CEO at Xtributor</div>
+                <div className="text-indigo-400 text-xs font-black uppercase tracking-widest">CEO at Xtributor</div>
               </div>
             </div>
           </div>
@@ -209,11 +209,11 @@ export default function Auth({ mode, onNavigate }: AuthProps) {
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-2xl">
               <div className="text-3xl font-black text-indigo-400">4.9/5</div>
-              <div className="text-[10px] text-slate-400 uppercase font-black tracking-widest mt-2">Reseller Rating</div>
+              <div className="text-xs text-slate-400 uppercase font-black tracking-widest mt-2">Reseller Rating</div>
             </div>
             <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-2xl">
               <div className="text-3xl font-black text-indigo-400">15k+</div>
-              <div className="text-[10px] text-slate-400 uppercase font-black tracking-widest mt-2">Managed Seats</div>
+              <div className="text-xs text-slate-400 uppercase font-black tracking-widest mt-2">Managed Seats</div>
             </div>
           </div>
         </motion.div>
