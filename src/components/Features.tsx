@@ -27,7 +27,7 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight"
+            className="text-[27px] md:text-[33px] font-black text-slate-900 mb-6 tracking-tight leading-tight"
           >
             The Ultimate Toolkit for <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-800">Cloud Distribution</span>

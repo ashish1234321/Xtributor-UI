@@ -3,34 +3,68 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion } from 'motion/react';
-import { TrendingUp, Settings, BarChart3, Receipt } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { TrendingUp, Settings, BarChart3, Receipt, Server, Globe, Shield, Zap } from 'lucide-react';
 import { InteractiveBackground } from './InteractiveBackground';
 
-const CHALLENGES = [
+const SLIDES = [
   {
-    title: "Break Growth Barriers",
-    description: "Get rid of operational challenges, grow beyond boundaries, with unmatched automation of compliance, tax, and almost everything.",
-    icon: TrendingUp
+    badge: "The Status Quo",
+    title: "Reselling Cloud the <span class=\"text-indigo-400\">old-fashioned</span> way?",
+    description: "One nudge is all it takes to transform your manual distribution into a hyper-automated engine. Manual provisioning, delayed billing, and fragmented customer views are relics of the past.",
+    items: [
+      { title: "Manual Sync", description: "Double-entry errors in spreadsheets cause massive revenue leakage.", icon: Settings },
+      { title: "Provisioning Gaps", description: "Delayed access leads to customer churn before they even start.", icon: Zap },
+      { title: "Data Silos", description: "No unified view of customer consumption across multiple clouds.", icon: BarChart3 },
+      { title: "Billing Fragments", description: "Spending days calculating prorated usage for thousands of seats.", icon: Receipt }
+    ]
   },
   {
-    title: "Streamline Business Operations",
-    description: "Automate provisioning, management of spreadsheets, taxation, and complicated cloud billing. It directs your focus towards growth.",
-    icon: Settings
+    badge: "Complex Billing",
+    title: "Tackle Complex <span class=\"text-indigo-400\">Billing Cycles</span> Effortlessly",
+    description: "Complexity shouldn't be a barrier to entry. Xtributor handles the most intricate subscription models, from fixed recurring to usage-based billing.",
+    items: [
+      { title: "Auto-Proration", description: "Precision billing for mid-cycle upgrades and downgrades.", icon: Receipt },
+      { title: "Dynamic Pricing", description: "Set custom price books for different tiers of your distribution network.", icon: Settings },
+      { title: "Usage Tracking", description: "Real-time intake of consumption data for accurate end-of-month invoicing.", icon: BarChart3 },
+      { title: "Global Taxation", description: "Embedded compliance for regional tax laws and VAT calculations.", icon: Shield }
+    ]
   },
   {
-    title: "Accelerate Your Sales",
-    description: "Intuitive marketplace with features to upsell, cross-sell, and bundle up cloud and SaaS solutions to boost sales and revenue.",
-    icon: BarChart3
+    badge: "ISV Growth",
+    title: "Empowering <span class=\"text-indigo-400\">SaaS Vendors</span> Globally",
+    description: "Take your SaaS product to the global market without worrying about localization or currency. We provide the infrastructure to scale your reach.",
+    items: [
+      { title: "Global Marketplace", description: "Instant access to a worldwide network of vetted cloud resellers.", icon: Globe },
+      { title: "Local Currency", description: "Bill your customers in their local currency while keeping your books in USD.", icon: BarChart3 },
+      { title: "Region-Specific Nodes", description: "Deploy localized storefronts to meet data residency requirements.", icon: Server },
+      { title: "Partner Channel", description: "Manage hundreds of individual partners from a single command center.", icon: Shield }
+    ]
   },
   {
-    title: "Flexible Cloud Billing",
-    description: "Make your SaaS and reseller business flexible with Xtributor's advanced cloud subscription billing management software.",
-    icon: Receipt
+    badge: "Marketplace Future",
+    title: "The Ultimate <span class=\"text-indigo-400\">Modern Distribution</span>",
+    description: "Join a select group of sellers who have unlocked the potential of automated cloud commerce. Future-proof your business today.",
+    items: [
+      { title: "One-Click Deploy", description: "Pre-integrated connectors for Azure, AWS, and Google Cloud.", icon: Zap },
+      { title: "White-Label UX", description: "Your brand, our engine. Fully customizable reseller portals.", icon: Settings },
+      { title: "AI Analytics", description: "Predictive churn analysis and cross-sell recommendations for your team.", icon: BarChart3 },
+      { title: "Secure Infrastructure", description: "Enterprise-grade security and compliance for every transaction.", icon: Shield }
+    ]
   }
 ];
 
 export default function Challenges() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+    }, 15000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="py-20 bg-slate-900 overflow-hidden relative group" id="challenges">
       <InteractiveBackground />
@@ -49,61 +83,79 @@ export default function Challenges() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-4">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest mb-6 border border-indigo-500/20"
-            >
-              Industry Challenges
-            </motion.div>
-            <motion.h2 
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-extrabold text-white mb-6 tracking-tight leading-tight"
-            >
-              Built to Effectively Tackle <span className="text-indigo-400">Complex Billing</span> Challenges
-            </motion.h2>
-            <p className="text-slate-400 font-medium text-sm leading-relaxed mb-8">
-              Xtributor is solely designed to transform the way cloud resellers and SaaS independent software vendors (ISVs) sell their services to customers.
-            </p>
-            <div className="flex items-center gap-4 text-indigo-400 font-bold text-xs uppercase tracking-widest">
-              <span>View full feature list</span>
-              <div className="h-px flex-1 bg-indigo-400/20" />
-            </div>
-          </div>
-
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {CHALLENGES.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                whileHover={{ 
-                  scale: 1.03, 
-                  y: -5,
-                  rotateZ: 0.5,
-                  transition: { duration: 0.2 } 
-                }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-all group cursor-default"
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.02 }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+          >
+            <div className="lg:col-span-4">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest mb-4 border border-indigo-500/20"
               >
-                <div className="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 transition-transform">
-                  <item.icon className="h-5 w-5" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2 tracking-tight">{item.title}</h3>
-                <p className="text-xs text-slate-400 leading-relaxed font-medium">
-                  {item.description}
-                </p>
+                {SLIDES[currentSlide].badge}
               </motion.div>
-            ))}
-          </div>
-        </div>
+              <motion.h2 
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                dangerouslySetInnerHTML={{ __html: SLIDES[currentSlide].title }}
+                className="text-[27px] md:text-[33px] font-extrabold text-white mb-4 tracking-tight leading-tight"
+              />
+              <motion.p 
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-slate-400 font-medium text-xs leading-relaxed mb-6"
+              >
+                {SLIDES[currentSlide].description}
+              </motion.p>
+              
+              <div className="flex gap-2">
+                {SLIDES.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentSlide(i)}
+                    className={`h-1.5 transition-all duration-300 rounded-full ${i === currentSlide ? 'w-8 bg-indigo-500' : 'w-2 bg-slate-700 hover:bg-slate-600'}`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {SLIDES[currentSlide].items.map((item, i) => (
+                <motion.div
+                  key={`${currentSlide}-${i}`}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  whileHover={{ 
+                    scale: 1.03, 
+                    y: -5,
+                    rotateZ: 0.5,
+                    transition: { duration: 0.2 } 
+                  }}
+                  transition={{ delay: i * 0.1 }}
+                  className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-all group cursor-default"
+                >
+                  <div className="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 transition-transform">
+                    <item.icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2 tracking-tight">{item.title}</h3>
+                  <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                    {item.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
 }
+

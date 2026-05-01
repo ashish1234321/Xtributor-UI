@@ -31,7 +31,7 @@ export default function CTA({ onNavigate }: CTAProps) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-extrabold text-white mb-10 tracking-tight leading-tight max-w-4xl mx-auto"
+          className="text-[27px] md:text-[33px] font-extrabold text-white mb-10 tracking-tight leading-tight max-w-4xl mx-auto"
         >
           Get Rid Of Operational Challenges And Become A Successful Cloud Reseller!
         </motion.h2>

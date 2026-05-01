@@ -71,7 +71,7 @@ export default function Auth({ mode, onNavigate }: AuthProps) {
             />
           </div>
 
-          <h2 className="text-3xl font-extrabold text-slate-900 mb-2 tracking-tight">
+          <h2 className="text-[33px] font-extrabold text-slate-900 mb-2 tracking-tight">
             {mode === 'login' ? 'Welcome Back' : 'Fill Your Details'}
           </h2>
           <p className="text-slate-500 mb-8 font-medium">
@@ -187,7 +187,7 @@ export default function Auth({ mode, onNavigate }: AuthProps) {
                 <div key={s} className="w-4 h-4 bg-indigo-500 rounded-sm"></div>
               ))}
             </div>
-            <h3 className="text-4xl font-extrabold mb-8 leading-tight tracking-tight">
+            <h3 className="text-[27px] md:text-[33px] font-extrabold mb-8 leading-tight tracking-tight">
               "Xtributor decreased our operational overhead by 70% in the first quarter."
             </h3>
             <div className="flex items-center space-x-4">

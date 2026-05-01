@@ -68,7 +68,7 @@ export default function Lifecycle() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight"
+            className="text-[27px] md:text-[33px] font-extrabold text-slate-900 tracking-tight"
           >
             One Platform, <span className="text-indigo-600">Infinite Possibilities</span>
           </motion.h2>
@@ -104,7 +104,7 @@ export default function Lifecycle() {
             {/* Left Info Column */}
             <div className="lg:col-span-4 space-y-8">
               <div className="p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-xl shadow-slate-200/50">
-                <h3 className="text-3xl font-black text-slate-900 mb-4 tracking-tighter leading-tight">
+                <h3 className="text-[33px] font-black text-slate-900 mb-4 tracking-tighter leading-tight">
                   {currentTab.title}
                 </h3>
                 <div className="h-1.5 w-12 bg-indigo-600 rounded-full mb-6"></div>

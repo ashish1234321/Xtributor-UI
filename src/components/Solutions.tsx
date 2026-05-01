@@ -46,7 +46,7 @@ export default function Solutions() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight"
+            className="text-[27px] md:text-[33px] font-extrabold text-slate-900 mb-6 tracking-tight leading-tight"
           >
             Seamless Cloud Subscription <span className="text-indigo-600">Billing Automation</span>
           </motion.h2>

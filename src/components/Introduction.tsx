@@ -58,7 +58,7 @@ export default function Introduction() {
             </div>
 
             {/* Main Heading */}
-            <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-[1.1]">
+            <h2 className="text-[27px] md:text-[33px] font-black text-slate-900 mb-6 tracking-tight leading-[1.1]">
               What is <span className="text-indigo-600">Xtributor?</span>
             </h2>
 

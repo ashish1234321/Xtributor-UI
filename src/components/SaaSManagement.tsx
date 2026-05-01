@@ -59,7 +59,7 @@ export default function SaaSManagement() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]"
+            className="text-[27px] md:text-[33px] font-black text-white mb-6 tracking-tight leading-[1.1]"
           >
             SaaS Subscription Management <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-indigo-600">

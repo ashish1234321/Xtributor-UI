@@ -31,7 +31,7 @@ export default function Integrations() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-16"
+          className="text-[27px] md:text-[33px] font-extrabold text-slate-900 tracking-tight mb-16"
         >
           Xtributor's <span className="text-indigo-600">Powerful Integrations</span>
         </motion.h2>

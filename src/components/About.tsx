@@ -16,7 +16,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             className="space-y-8"
           >
-            <h2 className="text-4xl font-extrabold text-slate-900 leading-tight tracking-tight">
+            <h2 className="text-[27px] md:text-[33px] font-extrabold text-slate-900 leading-tight tracking-tight">
               Built by <span className="text-indigo-600">Cloud Veterans</span> for Resellers
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed">
