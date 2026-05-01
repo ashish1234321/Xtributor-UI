@@ -35,11 +35,11 @@ const SAAS_FEATURES = [
 
 export default function SaaSManagement() {
   return (
-    <section className="py-32 bg-slate-950 overflow-hidden relative" id="saas-management">
+    <section className="py-32 bg-white dark:bg-slate-950 overflow-hidden relative transition-colors duration-300" id="saas-management">
       {/* Dynamic Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-[1000px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-[800px] h-[500px] bg-emerald-600/5 rounded-full blur-[100px] translate-y-1/2" />
+        <div className="absolute top-0 left-1/4 w-[1000px] h-[600px] bg-indigo-50 dark:bg-indigo-900/10 rounded-full blur-[120px] -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-[800px] h-[500px] bg-emerald-50 dark:bg-emerald-900/5 rounded-full blur-[100px] translate-y-1/2" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -48,9 +48,9 @@ export default function SaaSManagement() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-1.5 rounded-full bg-slate-900 border border-slate-800 mb-8"
+            className="inline-flex items-center px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800/50 mb-8"
           >
-            <span className="text-xs font-black uppercase tracking-[0.3em] text-indigo-400">
+            <span className="text-xs font-black uppercase tracking-[0.3em] text-indigo-600 dark:text-indigo-400">
               SEAMLESSLY SELL YOUR SAAS SOFTWARE GLOBALLY
             </span>
           </motion.div>
@@ -59,10 +59,10 @@ export default function SaaSManagement() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[27px] md:text-[33px] font-black text-white mb-6 tracking-tight leading-[1.1]"
+            className="text-[27px] md:text-[33px] font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-[1.1]"
           >
             SaaS Subscription Management <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-indigo-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-800 dark:from-indigo-400 dark:to-indigo-600">
               Software For ISVs
             </span>
           </motion.h2>
@@ -72,15 +72,15 @@ export default function SaaSManagement() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-slate-400 font-medium leading-relaxed"
+            className="text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed"
           >
             Xtributor helps you build a marketplace, bill the customers at custom pricing on a recurring basis, get consistent revenue, reduce customer churn, and manage their transactions and subscription cycles.
           </motion.p>
           
-          <div className="mt-4 text-xs font-black text-slate-600 uppercase tracking-widest flex items-center justify-center gap-4">
-             <span className="h-px w-8 bg-slate-800" />
+          <div className="mt-4 text-xs font-black text-slate-400 dark:text-slate-600 uppercase tracking-widest flex items-center justify-center gap-4">
+             <span className="h-px w-8 bg-slate-200 dark:bg-slate-800" />
              saas subscription billing management isvs
-             <span className="h-px w-8 bg-slate-800" />
+             <span className="h-px w-8 bg-slate-200 dark:bg-slate-800" />
           </div>
         </div>
 
@@ -93,28 +93,26 @@ export default function SaaSManagement() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ 
-                  y: -10, 
+                  y: -5, 
                   scale: 1.02,
-                  rotateX: 2,
-                  rotateY: 5,
                   transition: { duration: 0.2 }
                 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-[2.5rem] bg-slate-900/50 border border-slate-800/50 hover:border-indigo-500/40 transition-shadow group relative perspective-1000 shadow-lg hover:shadow-indigo-500/10"
+                className="p-8 rounded-[2.5rem] bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-200 dark:hover:border-indigo-500 hover:bg-white dark:hover:bg-slate-800 transition-all group relative perspective-1000 shadow-sm hover:shadow-xl hover:shadow-indigo-100/50 dark:hover:shadow-none"
               >
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg ${
-                  feature.color === 'blue' ? 'bg-blue-600/20 text-blue-400' :
-                  feature.color === 'amber' ? 'bg-amber-600/20 text-amber-400' :
-                  feature.color === 'emerald' ? 'bg-emerald-600/20 text-emerald-400' :
-                  'bg-indigo-600/20 text-indigo-400'
+                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-sm ${
+                  feature.color === 'blue' ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' :
+                  feature.color === 'amber' ? 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400' :
+                  feature.color === 'emerald' ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400' :
+                  'bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400'
                 }`}>
                   <feature.icon className="h-6 w-6" />
                 </div>
-                <h3 className="text-lg font-black text-white mb-4 tracking-tight leading-tight">
+                <h3 className="text-lg font-black text-slate-900 dark:text-white mb-4 tracking-tight leading-tight">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-slate-500 leading-relaxed font-medium">
+                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
                   {feature.description}
                 </p>
               </motion.div>
@@ -128,46 +126,46 @@ export default function SaaSManagement() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="bg-slate-900 rounded-[3rem] p-4 lg:p-6 shadow-2xl border border-slate-800"
+              className="bg-white dark:bg-slate-900 rounded-[3rem] p-4 lg:p-6 shadow-2xl border border-slate-100 dark:border-slate-800"
             >
-              <div className="bg-slate-950 rounded-[2.5rem] p-8 lg:p-10 relative overflow-hidden border border-white/5">
+              <div className="bg-slate-50 dark:bg-slate-950 rounded-[2.5rem] p-8 lg:p-10 relative overflow-hidden border border-slate-200 dark:border-slate-800">
                 {/* Visual Header */}
                 <div className="flex items-center justify-between mb-12">
                   <div>
-                    <div className="text-xs font-black text-indigo-400 uppercase tracking-widest mb-1">Global Dashboard</div>
-                    <div className="text-2xl font-black text-white blur-sm select-none animate-pulse">$142,500 <span className="text-xs text-emerald-400">MRR</span></div>
+                    <div className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-1">Global Dashboard</div>
+                    <div className="text-2xl font-black text-slate-900 dark:text-white blur-sm select-none animate-pulse">$142,500 <span className="text-xs text-emerald-600 dark:text-emerald-400">MRR</span></div>
                   </div>
-                  <div className="p-3 bg-white/5 rounded-2xl">
+                  <div className="p-3 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
                     <Globe2 className="h-6 w-6 text-slate-400" />
                   </div>
                 </div>
 
                 {/* Automation Visuals */}
                 <div className="space-y-6">
-                  <div className="p-5 bg-white/5 border border-white/5 rounded-2xl flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-indigo-600/20 flex items-center justify-center text-indigo-400">
+                  <div className="p-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl flex items-center gap-4 shadow-sm">
+                    <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
                       <RefreshCcw className="h-5 w-5 animate-spin-slow" />
                     </div>
                     <div className="flex-1">
-                      <div className="h-2 w-24 bg-white/10 rounded-full mb-2" />
-                      <div className="h-1.5 w-full bg-indigo-500/20 rounded-full overflow-hidden">
+                      <div className="h-2 w-24 bg-slate-100 dark:bg-slate-800 rounded-full mb-2" />
+                      <div className="h-1.5 w-full bg-indigo-100 dark:bg-indigo-900 rounded-full overflow-hidden">
                         <motion.div 
                           animate={{ width: ["0%", "100%"] }} 
                           transition={{ duration: 3, repeat: Infinity }} 
-                          className="h-full bg-indigo-500" 
+                          className="h-full bg-indigo-600 dark:bg-indigo-500" 
                         />
                       </div>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="p-5 bg-white/5 border border-white/5 rounded-2xl">
-                      <div className="text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Churn Rate</div>
-                      <div className="text-xl font-black text-emerald-400 blur-sm select-none animate-pulse">0.8%</div>
+                    <div className="p-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm">
+                      <div className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2">Churn Rate</div>
+                      <div className="text-xl font-black text-emerald-600 dark:text-emerald-400 blur-sm select-none animate-pulse">0.8%</div>
                     </div>
-                    <div className="p-5 bg-white/5 border border-white/5 rounded-2xl">
-                      <div className="text-xs font-black text-slate-500 uppercase tracking-widest mb-2">ISV Nodes</div>
-                      <div className="text-xl font-black text-white blur-sm select-none animate-pulse">42</div>
+                    <div className="p-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm">
+                      <div className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2">ISV Nodes</div>
+                      <div className="text-xl font-black text-slate-900 dark:text-white blur-sm select-none animate-pulse">42</div>
                     </div>
                   </div>
                 </div>
@@ -176,7 +174,7 @@ export default function SaaSManagement() {
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="mt-10 p-4 bg-indigo-600 rounded-2xl flex items-center justify-between"
+                  className="mt-10 p-4 bg-indigo-600 rounded-2xl flex items-center justify-between shadow-lg shadow-indigo-200"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center text-white">
@@ -190,7 +188,7 @@ export default function SaaSManagement() {
             </motion.div>
 
             {/* Glowing backdrop */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-indigo-500/10 rounded-full blur-[100px] -z-10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-indigo-500/5 rounded-full blur-[100px] -z-10" />
           </div>
         </div>
       </div>

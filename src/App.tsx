@@ -27,6 +27,32 @@ import Loader from './components/Loader';
 export default function App() {
   const [currentView, setCurrentView] = useState<View>('landing');
   const [isLoading, setIsLoading] = useState(true);
+  const [isDark, setIsDark] = useState(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const saved = localStorage.getItem('theme');
+        if (saved) return saved === 'dark';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+    } catch (e) {
+      console.error('LocalStorage not accessible', e);
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    try {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    } catch (e) {
+      console.error('LocalStorage not accessible', e);
+    }
+  }, [isDark]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -64,8 +90,8 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-blue-100 selection:text-blue-900">
-      <Navbar onNavigate={handleNavigate} />
+    <div className="min-h-screen bg-white dark:bg-slate-950 font-sans text-gray-900 dark:text-slate-100 selection:bg-indigo-100 dark:selection:bg-indigo-900 transition-colors duration-300">
+      <Navbar onNavigate={handleNavigate} themeProps={{ isDark, onToggle: () => setIsDark(prev => !prev) }} />
       
       <main>
         <Hero onNavigate={handleNavigate} />

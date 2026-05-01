@@ -14,13 +14,13 @@ interface AuthProps {
 
 const FormInput = ({ label, placeholder, type = "text", icon: Icon }: any) => (
   <div>
-    <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-1.5 ml-1">{label}</label>
+    <label className="block text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1.5 ml-1">{label}</label>
     <div className="relative">
       {Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />}
       <input 
         type={type} 
         placeholder={placeholder}
-        className={`w-full ${Icon ? 'pl-10' : 'px-4'} pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600/10 focus:border-indigo-600 transition-all font-sans text-sm font-medium`}
+        className={`w-full ${Icon ? 'pl-10' : 'px-4'} pr-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600/10 focus:border-indigo-600 transition-all font-sans text-sm font-medium dark:text-white dark:placeholder:text-slate-600`}
       />
     </div>
   </div>
@@ -28,15 +28,15 @@ const FormInput = ({ label, placeholder, type = "text", icon: Icon }: any) => (
 
 const FormSelect = ({ label, options, icon: Icon }: any) => (
   <div>
-    <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-1.5 ml-1">{label}</label>
+    <label className="block text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1.5 ml-1">{label}</label>
     <div className="relative">
       {Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />}
       <select 
-        className={`w-full ${Icon ? 'pl-10' : 'px-4'} pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600/10 focus:border-indigo-600 transition-all font-sans text-sm font-medium appearance-none cursor-pointer`}
+        className={`w-full ${Icon ? 'pl-10' : 'px-4'} pr-10 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600/10 focus:border-indigo-600 transition-all font-sans text-sm font-medium appearance-none cursor-pointer dark:text-white`}
       >
         <option value="" disabled selected>Select {label.replace(' *', '')}</option>
         {options.map((opt: string) => (
-          <option key={opt} value={opt}>{opt}</option>
+          <option key={opt} value={opt} className="dark:bg-slate-900 dark:text-white">{opt}</option>
         ))}
       </select>
       <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
@@ -46,9 +46,9 @@ const FormSelect = ({ label, options, icon: Icon }: any) => (
 
 export default function Auth({ mode, onNavigate }: AuthProps) {
   return (
-    <div className="min-h-screen flex" id="auth-page">
+    <div className="min-h-screen flex transition-colors duration-300" id="auth-page">
       {/* Left side - Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 bg-white overflow-y-auto">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 bg-white dark:bg-slate-950 overflow-y-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export default function Auth({ mode, onNavigate }: AuthProps) {
         >
           <button 
             onClick={() => onNavigate('landing')}
-            className="flex items-center text-sm font-semibold text-slate-500 hover:text-slate-900 mb-8 group transition-colors"
+            className="flex items-center text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white mb-8 group transition-colors"
           >
             <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Home
@@ -66,15 +66,15 @@ export default function Auth({ mode, onNavigate }: AuthProps) {
             <img
               src="https://xtributor.com/AppGallop2.0_API/file/2_1776152935712.png"
               alt="Xtributor Logo"
-              className="h-8 w-auto"
+              className="h-8 w-auto dark:invert"
               referrerPolicy="no-referrer"
             />
           </div>
 
-          <h2 className="text-[33px] font-extrabold text-slate-900 mb-2 tracking-tight">
+          <h2 className="text-[33px] font-extrabold text-slate-900 dark:text-white mb-2 tracking-tight">
             {mode === 'login' ? 'Welcome Back' : 'Fill Your Details'}
           </h2>
-          <p className="text-slate-500 mb-8 font-medium">
+          <p className="text-slate-500 dark:text-slate-400 mb-8 font-medium">
             {mode === 'login' 
               ? 'Access your reseller dashboard and manage your subscriptions.' 
               : 'Join the next generation of cloud resellers today.'}
@@ -84,14 +84,14 @@ export default function Auth({ mode, onNavigate }: AuthProps) {
             {mode === 'signup' && (
               <div className="space-y-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
                 {/* User Type Selection */}
-                <div className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100 mb-6">
+                <div className="flex gap-4 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800 mb-6">
                   <label className="flex items-center cursor-pointer group">
-                    <input type="radio" name="user_type" className="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300" defaultChecked />
-                    <span className="ml-2 text-sm font-bold text-slate-700">T2 Disti</span>
+                    <input type="radio" name="user_type" className="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300 dark:border-slate-700" defaultChecked />
+                    <span className="ml-2 text-sm font-bold text-slate-700 dark:text-slate-300">T2 Disti</span>
                   </label>
                   <label className="flex items-center cursor-pointer group">
-                    <input type="radio" name="user_type" className="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300" />
-                    <span className="ml-2 text-sm font-bold text-slate-700">MSP / Seller</span>
+                    <input type="radio" name="user_type" className="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300 dark:border-slate-700" />
+                    <span className="ml-2 text-sm font-bold text-slate-700 dark:text-slate-300">MSP / Seller</span>
                   </label>
                 </div>
 
@@ -130,11 +130,11 @@ export default function Auth({ mode, onNavigate }: AuthProps) {
                   <div className="md:col-span-1"><FormInput label="Phone *" placeholder="Phone Number" icon={Phone} /></div>
                 </div>
 
-                <div className="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100/30 mt-6 flex gap-4 items-start">
+                <div className="p-4 bg-indigo-50/50 dark:bg-indigo-900/10 rounded-xl border border-indigo-100/30 dark:border-indigo-800/30 mt-6 flex gap-4 items-start">
                   <div className="flex-shrink-0 mt-1">
-                    <input type="checkbox" required className="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300 rounded cursor-pointer" />
+                    <input type="checkbox" required className="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300 dark:border-slate-700 rounded cursor-pointer" />
                   </div>
-                  <p className="text-xs text-slate-500 leading-relaxed font-semibold italic">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-semibold italic">
                     By clicking this, you agree and understand that Xtributor and its associate brands may use this information to communicate with you for this or any other future promotional offers. Your information is stored securely and not shared anywhere else. Submitting this form does not guarantee invite to Xtributor platform. Our team will evaluate your information and then provide access to a select group of sellers the opportunity to kick-start with free access to Xtributor platform.
                   </p>
                 </div>
@@ -146,22 +146,22 @@ export default function Auth({ mode, onNavigate }: AuthProps) {
                 <FormInput label="Email Address" type="email" placeholder="john@example.com" icon={Mail} />
                 <FormInput label="Password" type="password" placeholder="••••••••" icon={Lock} />
                 <div className="flex justify-end">
-                  <button className="text-sm font-bold text-indigo-600 hover:text-indigo-700">Forgot Password?</button>
+                  <button className="text-sm font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors">Forgot Password?</button>
                 </div>
               </>
             )}
 
-            <button className="w-full bg-indigo-600 text-white px-5 py-3 rounded-lg text-sm font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100 flex items-center justify-center group mt-6">
+            <button className="w-full bg-indigo-600 dark:bg-indigo-500 text-white px-5 py-3 rounded-lg text-sm font-bold hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-all shadow-lg shadow-indigo-100 dark:shadow-none flex items-center justify-center group mt-6">
               {mode === 'login' ? 'Sign In' : 'Register Now'}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </form>
 
-          <p className="text-center mt-8 text-slate-500 text-sm font-medium">
+          <p className="text-center mt-8 text-slate-500 dark:text-slate-400 text-sm font-medium">
             {mode === 'login' ? "Don't have an account?" : "Already have an account?"}{' '}
             <button 
               onClick={() => onNavigate(mode === 'login' ? 'signup' : 'login')}
-              className="font-bold text-indigo-600 hover:text-indigo-700 underline underline-offset-4 decoration-indigo-200"
+              className="font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 underline underline-offset-4 decoration-indigo-200 dark:decoration-indigo-800"
             >
               {mode === 'login' ? 'Sign Up' : 'Sign In'}
             </button>

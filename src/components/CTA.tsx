@@ -12,7 +12,7 @@ interface CTAProps {
 
 export default function CTA({ onNavigate }: CTAProps) {
   return (
-    <section className="py-24 bg-indigo-600 relative overflow-hidden" id="cta">
+    <section className="py-24 bg-indigo-600 dark:bg-indigo-700 relative overflow-hidden transition-colors duration-300" id="cta">
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <motion.div 
           animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
@@ -44,7 +44,7 @@ export default function CTA({ onNavigate }: CTAProps) {
         >
           <button 
             onClick={() => onNavigate('signup')}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-indigo-600 rounded-xl font-bold text-sm hover:bg-slate-50 transition-all shadow-xl hover:shadow-indigo-500/20 group"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800 text-indigo-600 rounded-xl font-bold text-sm hover:bg-slate-50 transition-all shadow-xl hover:shadow-indigo-500/20 group"
           >
             Start Your Transformation
             <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />

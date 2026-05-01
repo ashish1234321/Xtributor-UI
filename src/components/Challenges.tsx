@@ -11,7 +11,7 @@ import { InteractiveBackground } from './InteractiveBackground';
 const SLIDES = [
   {
     badge: "The Status Quo",
-    title: "Reselling Cloud the <span class=\"text-indigo-400\">old-fashioned</span> way?",
+    title: "Reselling Cloud the <span class=\"text-indigo-600 dark:text-indigo-400\">old-fashioned</span> way?",
     description: "One nudge is all it takes to transform your manual distribution into a hyper-automated engine. Manual provisioning, delayed billing, and fragmented customer views are relics of the past.",
     items: [
       { title: "Manual Sync", description: "Double-entry errors in spreadsheets cause massive revenue leakage.", icon: Settings },
@@ -22,7 +22,7 @@ const SLIDES = [
   },
   {
     badge: "Complex Billing",
-    title: "Tackle Complex <span class=\"text-indigo-400\">Billing Cycles</span> Effortlessly",
+    title: "Tackle Complex <span class=\"text-indigo-600 dark:text-indigo-400\">Billing Cycles</span> Effortlessly",
     description: "Complexity shouldn't be a barrier to entry. Xtributor handles the most intricate subscription models, from fixed recurring to usage-based billing.",
     items: [
       { title: "Auto-Proration", description: "Precision billing for mid-cycle upgrades and downgrades.", icon: Receipt },
@@ -33,7 +33,7 @@ const SLIDES = [
   },
   {
     badge: "ISV Growth",
-    title: "Empowering <span class=\"text-indigo-400\">SaaS Vendors</span> Globally",
+    title: "Empowering <span class=\"text-indigo-600 dark:text-indigo-400\">SaaS Vendors</span> Globally",
     description: "Take your SaaS product to the global market without worrying about localization or currency. We provide the infrastructure to scale your reach.",
     items: [
       { title: "Global Marketplace", description: "Instant access to a worldwide network of vetted cloud resellers.", icon: Globe },
@@ -44,7 +44,7 @@ const SLIDES = [
   },
   {
     badge: "Marketplace Future",
-    title: "The Ultimate <span class=\"text-indigo-400\">Modern Distribution</span>",
+    title: "The Ultimate <span class=\"text-indigo-600 dark:text-indigo-400\">Modern Distribution</span>",
     description: "Join a select group of sellers who have unlocked the potential of automated cloud commerce. Future-proof your business today.",
     items: [
       { title: "One-Click Deploy", description: "Pre-integrated connectors for Azure, AWS, and Google Cloud.", icon: Zap },
@@ -66,19 +66,19 @@ export default function Challenges() {
   }, []);
 
   return (
-    <section className="py-20 bg-slate-900 overflow-hidden relative group" id="challenges">
+    <section className="py-20 bg-white dark:bg-slate-950 overflow-hidden relative group transition-colors duration-300" id="challenges">
       <InteractiveBackground />
       {/* Decorative background element */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 
-          animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05], x: [0, 100, 0] }}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.02, 0.05, 0.02], x: [0, 100, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[120px]" 
+          className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[120px]" 
         />
         <motion.div 
-          animate={{ scale: [1, 1.3, 1], opacity: [0.03, 0.06, 0.03], x: [0, -50, 0] }}
+          animate={{ scale: [1, 1.3, 1], opacity: [0.01, 0.03, 0.01], x: [0, -50, 0] }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[100px]" 
+          className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[100px]" 
         />
       </div>
       
@@ -96,7 +96,7 @@ export default function Challenges() {
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest mb-4 border border-indigo-500/20"
+                className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-widest mb-4 border border-indigo-100 dark:border-indigo-800/50"
               >
                 {SLIDES[currentSlide].badge}
               </motion.div>
@@ -105,13 +105,13 @@ export default function Challenges() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
                 dangerouslySetInnerHTML={{ __html: SLIDES[currentSlide].title }}
-                className="text-[27px] md:text-[33px] font-extrabold text-white mb-4 tracking-tight leading-tight"
+                className="text-[27px] md:text-[33px] font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight leading-tight"
               />
               <motion.p 
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-slate-400 font-medium text-xs leading-relaxed mb-6"
+                className="text-slate-600 dark:text-slate-400 font-medium text-sm leading-relaxed mb-6"
               >
                 {SLIDES[currentSlide].description}
               </motion.p>
@@ -121,7 +121,7 @@ export default function Challenges() {
                   <button
                     key={i}
                     onClick={() => setCurrentSlide(i)}
-                    className={`h-1.5 transition-all duration-300 rounded-full ${i === currentSlide ? 'w-8 bg-indigo-500' : 'w-2 bg-slate-700 hover:bg-slate-600'}`}
+                    className={`h-1.5 transition-all duration-300 rounded-full ${i === currentSlide ? 'w-8 bg-indigo-600 dark:bg-indigo-500' : 'w-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700'}`}
                   />
                 ))}
               </div>
@@ -134,19 +134,18 @@ export default function Challenges() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   whileHover={{ 
-                    scale: 1.03, 
+                    scale: 1.02, 
                     y: -5,
-                    rotateZ: 0.5,
                     transition: { duration: 0.2 } 
                   }}
                   transition={{ delay: i * 0.1 }}
-                  className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-all group cursor-default"
+                  className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-white dark:hover:bg-slate-800/50 hover:border-indigo-100 dark:hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-100/50 dark:hover:shadow-none transition-all group cursor-default"
                 >
-                  <div className="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 bg-indigo-50 dark:bg-indigo-900 rounded-lg flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4 group-hover:scale-110 transition-all">
                     <item.icon className="h-5 w-5" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2 tracking-tight">{item.title}</h3>
-                  <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 tracking-tight">{item.title}</h3>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
                     {item.description}
                   </p>
                 </motion.div>

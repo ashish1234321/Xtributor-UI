@@ -52,7 +52,7 @@ export default function Lifecycle() {
   const currentTab = TABS.find(t => t.id === activeTab)!;
 
   return (
-    <section className="py-16 bg-slate-50 relative overflow-hidden" id="capabilities">
+    <section className="py-16 bg-slate-50 dark:bg-slate-900/50 relative overflow-hidden transition-colors duration-300" id="capabilities">
       <BackgroundAnimation />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
@@ -60,7 +60,7 @@ export default function Lifecycle() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-widest mb-4 border border-indigo-100"
+            className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-400 text-xs font-bold uppercase tracking-widest mb-4 border border-indigo-100 dark:border-indigo-800/50"
           >
             PLATFORM CAPABILITIES
           </motion.div>
@@ -68,9 +68,9 @@ export default function Lifecycle() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[27px] md:text-[33px] font-extrabold text-slate-900 tracking-tight"
+            className="text-[27px] md:text-[33px] font-extrabold text-slate-900 dark:text-white tracking-tight"
           >
-            One Platform, <span className="text-indigo-600">Infinite Possibilities</span>
+            One Platform, <span className="text-indigo-600 dark:text-indigo-400">Infinite Possibilities</span>
           </motion.h2>
         </div>
 
@@ -82,8 +82,8 @@ export default function Lifecycle() {
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all ${
                 activeTab === tab.id 
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200' 
-                : 'bg-white text-slate-500 hover:bg-slate-100'
+                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200 dark:shadow-none' 
+                : 'bg-white dark:bg-slate-900 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
               }`}
             >
               <tab.icon className="h-4 w-4" />
@@ -103,20 +103,20 @@ export default function Lifecycle() {
           >
             {/* Left Info Column */}
             <div className="lg:col-span-4 space-y-8">
-              <div className="p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-xl shadow-slate-200/50">
-                <h3 className="text-[33px] font-black text-slate-900 mb-4 tracking-tighter leading-tight">
+              <div className="p-8 rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none">
+                <h3 className="text-[33px] font-black text-slate-900 dark:text-white mb-4 tracking-tighter leading-tight">
                   {currentTab.title}
                 </h3>
                 <div className="h-1.5 w-12 bg-indigo-600 rounded-full mb-6"></div>
-                <p className="text-sm text-slate-500 font-medium leading-relaxed mb-8">
+                <p className="text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-8">
                   {currentTab.description}
                 </p>
                 
                 <div className="space-y-4">
-                  <div className="text-xs font-black text-slate-400 uppercase tracking-widest">Key Modules</div>
+                  <div className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Key Modules</div>
                   <div className="flex flex-wrap gap-2">
                     {currentTab.data.map((cat, i) => (
-                      <span key={i} className="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs font-black uppercase tracking-wider">
+                      <span key={i} className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-xs font-black uppercase tracking-wider">
                         {cat.title}
                       </span>
                     ))}
@@ -124,7 +124,7 @@ export default function Lifecycle() {
                 </div>
               </div>
 
-              <div className="p-6 rounded-[2rem] bg-indigo-600 text-white shadow-xl shadow-indigo-200">
+              <div className="p-6 rounded-[2rem] bg-indigo-600 text-white shadow-xl shadow-indigo-200 dark:shadow-none">
                 <div className="flex items-center gap-3 mb-2">
                   <PieChart className="h-5 w-5 text-indigo-200" />
                   <span className="text-xs font-black uppercase tracking-widest text-indigo-100">Live Efficiency</span>
@@ -136,15 +136,15 @@ export default function Lifecycle() {
 
             {/* Right Visual Dashboard Column */}
             <div className="lg:col-span-8">
-              <div className="bg-white rounded-[3rem] p-4 shadow-2xl shadow-slate-200 relative overflow-hidden border border-slate-100">
-                <div className="bg-slate-50/50 rounded-[2.5rem] p-8 lg:p-12 border border-white relative z-10">
+              <div className="bg-white dark:bg-slate-900 rounded-[3rem] p-4 shadow-2xl shadow-slate-200 dark:shadow-none relative overflow-hidden border border-slate-100 dark:border-slate-800">
+                <div className="bg-slate-50/50 dark:bg-slate-950/50 rounded-[2.5rem] p-8 lg:p-12 border border-white dark:border-slate-800 relative z-10">
                   <div className="flex items-center justify-between mb-12">
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200">
+                      <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200 dark:shadow-none">
                         <currentTab.icon className="h-6 w-6" />
                       </div>
                       <div>
-                        <div className="text-lg font-black text-slate-900">{currentTab.subtitle}</div>
+                        <div className="text-lg font-black text-slate-900 dark:text-white">{currentTab.subtitle}</div>
                       </div>
                     </div>
                   </div>
@@ -153,10 +153,10 @@ export default function Lifecycle() {
                     {currentTab.data.map((cat, i) => (
                       <div key={i} className="space-y-6">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-white shadow-sm border border-slate-100 flex items-center justify-center text-indigo-600">
+                          <div className="w-8 h-8 rounded-lg bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
                             <cat.icon className="h-4 w-4" />
                           </div>
-                          <h4 className="text-xs font-black text-slate-900 uppercase tracking-widest">{cat.title}</h4>
+                          <h4 className="text-xs font-black text-slate-900 dark:text-white uppercase tracking-widest">{cat.title}</h4>
                         </div>
                         
                         <div className="space-y-4">
@@ -166,15 +166,15 @@ export default function Lifecycle() {
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: (i * 0.2) + (idx * 0.1) }}
-                              className="group p-4 bg-white border border-slate-100 rounded-2xl hover:border-indigo-200 hover:bg-white transition-all flex items-center justify-between shadow-sm hover:shadow-md"
+                              className="group p-4 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl hover:border-indigo-200 dark:hover:border-indigo-500 hover:bg-white dark:hover:bg-slate-800 transition-all flex items-center justify-between shadow-sm hover:shadow-md dark:shadow-none"
                             >
                               <div className="flex items-center gap-3">
-                                <div className="w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
+                                <div className="w-5 h-5 rounded-full bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                                   <Check className="h-3 w-3" />
                                 </div>
-                                <span className="text-xs font-black text-slate-500 uppercase tracking-widest">{item}</span>
+                                <span className="text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">{item}</span>
                               </div>
-                              <div className="h-1 w-8 bg-indigo-100 rounded-full overflow-hidden group-hover:w-16 transition-all duration-500">
+                              <div className="h-1 w-8 bg-indigo-100 dark:bg-indigo-900 rounded-full overflow-hidden group-hover:w-16 transition-all duration-500">
                                 <motion.div 
                                   animate={{ x: [-32, 64] }} 
                                   transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
@@ -187,8 +187,6 @@ export default function Lifecycle() {
                       </div>
                     ))}
                   </div>
-
-                  {/* Aesthetic Dashboard Decoration removed */}
                 </div>
               </div>
             </div>
