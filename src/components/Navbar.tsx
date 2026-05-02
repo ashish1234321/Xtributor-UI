@@ -34,7 +34,7 @@ export default function Navbar({ onNavigate, themeProps }: NavbarProps) {
           </div>
 
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8" id="nav-links">
-            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</a>
+            <button onClick={() => onNavigate('landing')} className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</button>
             
             {/* Solutions Dropdown */}
             <div className="relative group">
@@ -43,12 +43,12 @@ export default function Navbar({ onNavigate, themeProps }: NavbarProps) {
                 <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
               </button>
               <div className="absolute top-full left-0 w-56 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all p-2">
-                <a href="#features" className="block px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg transition-colors">Cloud Sellers</a>
-                <a href="#saas-management" className="block px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg transition-colors">B2B SaaS</a>
+                <button onClick={() => onNavigate('cloud-sellers')} className="w-full text-left block px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg transition-colors">Cloud Sellers</button>
+                <button onClick={() => onNavigate('b2b-saas')} className="w-full text-left block px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg transition-colors">B2B SaaS</button>
               </div>
             </div>
 
-            <a href="#integrations" className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Integrations</a>
+            <button onClick={() => onNavigate('integrations')} className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Integrations</button>
 
             {/* Company Dropdown */}
             <div className="relative group">
@@ -57,9 +57,9 @@ export default function Navbar({ onNavigate, themeProps }: NavbarProps) {
                 <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
               </button>
               <div className="absolute top-full left-0 w-56 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all p-2">
-                <a href="#intro" className="block px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg transition-colors">About Us</a>
-                <a href="#footer" className="block px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg transition-colors">Contact</a>
-                <a href="#footer" className="block px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg transition-colors">Careers</a>
+                <button onClick={() => onNavigate('about')} className="w-full text-left block px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg transition-colors">About Us</button>
+                <button onClick={() => onNavigate('contact')} className="w-full text-left block px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg transition-colors">Contact</button>
+                <button onClick={() => onNavigate('careers')} className="w-full text-left block px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg transition-colors">Careers</button>
               </div>
             </div>
 
@@ -91,7 +91,7 @@ export default function Navbar({ onNavigate, themeProps }: NavbarProps) {
         </div>
       </div>
 
-      {isOpen && (
+       {isOpen && (
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,18 +99,18 @@ export default function Navbar({ onNavigate, themeProps }: NavbarProps) {
           id="mobile-menu"
         >
           <div className="px-4 pt-2 pb-6 space-y-1">
-            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); setIsOpen(false); }} className="block px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400">Home</a>
+            <button onClick={() => { onNavigate('landing'); setIsOpen(false); }} className="block w-full text-left px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400">Home</button>
             
             <div className="px-3 py-2 text-xs font-bold text-slate-400 uppercase tracking-widest pt-4">Solutions</div>
-            <a href="#features" className="block px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400" onClick={() => setIsOpen(false)}>Cloud Sellers</a>
-            <a href="#saas-management" className="block px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400" onClick={() => setIsOpen(false)}>B2B SaaS</a>
+            <button className="block w-full text-left px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400" onClick={() => { onNavigate('cloud-sellers'); setIsOpen(false); }}>Cloud Sellers</button>
+            <button className="block w-full text-left px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400" onClick={() => { onNavigate('b2b-saas'); setIsOpen(false); }}>B2B SaaS</button>
             
-            <a href="#integrations" className="block px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400" onClick={() => setIsOpen(false)}>Integrations</a>
+            <button className="block w-full text-left px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400" onClick={() => { onNavigate('integrations'); setIsOpen(false); }}>Integrations</button>
             
             <div className="px-3 py-2 text-xs font-bold text-slate-400 uppercase tracking-widest pt-4">Company</div>
-            <a href="#intro" className="block px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400" onClick={() => setIsOpen(false)}>About Us</a>
-            <a href="#footer" className="block px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400" onClick={() => setIsOpen(false)}>Contact</a>
-            <a href="#footer" className="block px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400" onClick={() => setIsOpen(false)}>Careers</a>
+            <button className="block w-full text-left px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400" onClick={() => { onNavigate('about'); setIsOpen(false); }}>About Us</button>
+            <button className="block w-full text-left px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400" onClick={() => { onNavigate('contact'); setIsOpen(false); }}>Contact</button>
+            <button className="block w-full text-left px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400" onClick={() => { onNavigate('careers'); setIsOpen(false); }}>Careers</button>
 
             <div className="pt-4 space-y-2">
               <button 

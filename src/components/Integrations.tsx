@@ -5,13 +5,7 @@
 
 import { motion } from 'motion/react';
 import { BackgroundAnimation } from './BackgroundAnimation';
-
-const LOGOS = [
-  { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
-  { name: "PayPal", url: "https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" },
-  { name: "Stripe", url: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" },
-  { name: "QuickBooks", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Intuit_QuickBooks_logo.svg/3840px-Intuit_QuickBooks_logo.svg.png" }
-];
+import { INTEGRATION_LOGOS } from '../constants';
 
 export default function Integrations() {
   return (
@@ -37,7 +31,7 @@ export default function Integrations() {
         </motion.h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-5xl mx-auto">
-          {LOGOS.map((logo, i) => (
+          {INTEGRATION_LOGOS.map((logo, i) => (
             <motion.div 
               key={i}
               initial={{ opacity: 0, y: 20 }}

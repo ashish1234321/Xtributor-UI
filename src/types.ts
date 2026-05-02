@@ -10,4 +10,4 @@ export interface Feature {
   icon: string;
 }
 
-export type View = 'landing' | 'login' | 'signup';
+export type View = 'landing' | 'login' | 'signup' | 'cloud-sellers' | 'b2b-saas' | 'integrations' | 'about' | 'contact' | 'careers';

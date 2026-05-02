@@ -23,6 +23,14 @@ import CTA from './components/CTA';
 import Auth from './components/Auth';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
+import CloudSellers from './components/CloudSellers';
+import B2BSaaS from './components/B2BSaaS';
+import IntegrationsPage from './components/IntegrationsPage';
+import AboutUs from './components/AboutUs';
+import Contact from './components/Contact';
+import Careers from './components/Careers';
+import ScrollToTop from './components/ScrollToTop';
+import { BlogSection } from './components/BlogSection';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<View>('landing');
@@ -94,17 +102,33 @@ export default function App() {
       <Navbar onNavigate={handleNavigate} themeProps={{ isDark, onToggle: () => setIsDark(prev => !prev) }} />
       
       <main>
-        <Hero onNavigate={handleNavigate} />
-        <Introduction />
-        <Features />
-        <SaaSManagement />
-        <Lifecycle />
-        <Challenges />
-        <Integrations />
-        <CTA onNavigate={handleNavigate} />
+        {currentView === 'landing' ? (
+          <>
+            <Hero onNavigate={handleNavigate} />
+            <Introduction />
+            <Features />
+            <SaaSManagement />
+            <Lifecycle />
+            <Challenges />
+            <Integrations />
+            <CTA onNavigate={handleNavigate} />
+          </>
+        ) : (
+          <div className="animate-in fade-in duration-500">
+            {currentView === 'cloud-sellers' && <CloudSellers />}
+            {currentView === 'b2b-saas' && <B2BSaaS />}
+            {currentView === 'integrations' && <IntegrationsPage />}
+            {currentView === 'about' && <AboutUs onNavigate={handleNavigate} />}
+            {currentView === 'contact' && <Contact />}
+            {currentView === 'careers' && <Careers />}
+          </div>
+        )}
       </main>
 
-      <Footer />
+      {!['about', 'contact', 'careers', 'login', 'signup'].includes(currentView) && <BlogSection />}
+
+      <Footer onNavigate={handleNavigate} />
+      <ScrollToTop />
     </div>
   );
 }

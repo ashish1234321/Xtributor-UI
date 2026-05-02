@@ -65,3 +65,10 @@ export const FEATURES = [
     icon: 'Monitor',
   },
 ];
+
+export const INTEGRATION_LOGOS = [
+  { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
+  { name: "PayPal", url: "https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" },
+  { name: "Stripe", url: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" },
+  { name: "QuickBooks", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Intuit_QuickBooks_logo.svg/3840px-Intuit_QuickBooks_logo.svg.png" }
+];

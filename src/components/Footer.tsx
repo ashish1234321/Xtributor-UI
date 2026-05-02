@@ -4,8 +4,13 @@
  */
 
 import { Facebook, Twitter, Linkedin, Mail } from 'lucide-react';
+import { View } from '../types';
 
-export default function Footer() {
+interface FooterProps {
+  onNavigate?: (view: View) => void;
+}
+
+export default function Footer({ onNavigate }: FooterProps) {
   return (
     <footer className="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white py-16 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300" id="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,7 +20,8 @@ export default function Footer() {
               <img 
                 src="https://xtributor.com/AppGallop2.0_API/file/2_1776152935712.png" 
                 alt="Xtributor Logo" 
-                className="h-10 w-auto dark:invert" 
+                className="h-10 w-auto dark:invert cursor-pointer" 
+                onClick={() => onNavigate?.('landing')}
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -32,22 +38,22 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-6">Quick Links</h4>
             <ul className="space-y-4 text-slate-600 dark:text-slate-400 font-medium">
-              <li><a href="#intro" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a></li>
-              <li><a href="#features" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Cloud Sellers</a></li>
-              <li><a href="#saas-management" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">B2B SaaS</a></li>
-              <li><a href="#integrations" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Integrations</a></li>
-              <li><a href="#" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">FAQs</a></li>
+              <li><button onClick={() => onNavigate?.('about')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</button></li>
+              <li><button onClick={() => onNavigate?.('cloud-sellers')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Cloud Sellers</button></li>
+              <li><button onClick={() => onNavigate?.('b2b-saas')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">B2B SaaS</button></li>
+              <li><button onClick={() => onNavigate?.('integrations')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Integrations</button></li>
+              <li><button className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-not-allowed">FAQs</button></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-6">Info Links</h4>
             <ul className="space-y-4 text-slate-600 dark:text-slate-400 font-medium">
-              <li><a href="#" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Find a Reseller</a></li>
-              <li><a href="#" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Terms</a></li>
+              <li><button className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-not-allowed text-left">Find a Reseller</button></li>
+              <li><button onClick={() => onNavigate?.('contact')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</button></li>
+              <li><button onClick={() => onNavigate?.('careers')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Careers</button></li>
+              <li><button className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-not-allowed text-left">Privacy Policy</button></li>
+              <li><button className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-not-allowed text-left">Terms</button></li>
             </ul>
           </div>
 
