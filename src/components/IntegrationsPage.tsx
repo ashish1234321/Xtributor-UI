@@ -1,46 +1,47 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Cloud, CreditCard, Calculator, FileJson, Zap, Link as LinkIcon, CheckCircle2 } from 'lucide-react';
 import { BackgroundAnimation } from './BackgroundAnimation';
+import { IntegrationsIllustration } from './IntegrationsIllustration';
 
 export default function IntegrationsPage() {
   const integrations = [
     {
+      illustrationType: "distributors" as const,
       type: "CLOUD DISTRIBUTORS",
       title: "Connect & Sell From Popular Cloud Distributors & Service Providers",
       description: "With multi disti-connect APIs, you can sell the cloud services from multiple distributors of your choice from your own marketplace. Xtributor API allows you to connect with most of the popular cloud distributors, customize product pricing & information, fetch products to the marketplace, and enable automated provisioning & billing.",
       partners: ["Crayon", "Ingram Micro", "SoftwareOne"],
       badge: "GET THINGS DONE WITHIN A FEW CLICKS",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
       icon: Cloud,
       color: "indigo"
     },
     {
+      illustrationType: "tax" as const,
       type: "TAX COMPLIANCE",
       title: "Tax Compliance Software Integration",
       description: "To help you reduce compliance risk, calculate tax rates, and focus on revenue-generating tasks, Xtributor comes integrated with Avalara software. It has everything that you need for seamless tax management, including sales tax registration, rate calculation, as well as returns filing and remittance.",
       partners: ["Avalara"],
       badge: "ENABLE CENTRALIZED TAX MANAGEMENT & REPORTING",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800",
       icon: Calculator,
       color: "emerald"
     },
     {
+      illustrationType: "payments" as const,
       type: "PAYMENT GATEWAYS",
       title: "Payment Gateway Integrations",
       description: "Accept global payments from your customers while enabling faster checkouts, chargeback prevention, recurring billing, and multiple payment options. Xtributor supports both PayPal and Stripe, with more trending gateway integrations to be supported soon.",
       partners: ["PayPal", "Stripe"],
       badge: "FASTER PAYMENT PROCESSING",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800",
       icon: CreditCard,
       color: "blue"
     },
     {
+      illustrationType: "accounting" as const,
       type: "ACCOUNTING TOOLS",
       title: "Integration with Top Accounting Tools",
       description: "No need to do the mundane tasks of managing the financial side of your business manually. Utilize accounting tools like Tally and Quickbooks right within Xtributor. No messed up records or bookkeeping. We understand that accounting is your least favorite task.",
       partners: ["Quickbooks", "Tally"],
       badge: "ENHANCED & CONVENIENT ACCOUNTING",
-      image: "https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&q=80&w=800",
       icon: FileJson,
       color: "purple"
     }
@@ -120,14 +121,9 @@ export default function IntegrationsPage() {
                     style={{ backgroundImage: 'radial-gradient(#6366f1 2px, transparent 2px)', backgroundSize: '16px 16px' }} 
                   />
                   <div className={`bg-white dark:bg-slate-900 p-4 lg:p-6 rounded-[3.5rem] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden`}>
-                    <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden group">
-                      <img 
-                        src={section.image} 
-                        alt={section.title} 
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0 opacity-90 hover:opacity-100"
-                        referrerPolicy="no-referrer"
-                      />
-                      <div className="absolute inset-0 bg-indigo-600/10 group-hover:bg-transparent transition-all duration-500" />
+                    <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden group bg-slate-50 dark:bg-slate-950">
+                      <IntegrationsIllustration type={section.illustrationType} />
+                      <div className="absolute inset-0 bg-indigo-600/5 group-hover:bg-transparent transition-all duration-500 pointer-events-none" />
                       <div className="absolute top-6 left-6 p-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl shadow-xl">
                         <section.icon className="h-8 w-8 text-indigo-600" />
                       </div>

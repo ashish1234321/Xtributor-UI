@@ -7,6 +7,9 @@ import { motion } from 'motion/react';
 import { Shield, Zap, Layout, BarChart, Users, Settings, Ticket, ShoppingCart, ArrowRight } from 'lucide-react';
 import { BackgroundAnimation } from './BackgroundAnimation';
 import { View } from '../types';
+import { AboutIllustration } from './AboutIllustration';
+import { CloudSolutionsIllustration } from './CloudSolutionsIllustration';
+import { BundlingIllustration } from './BundlingIllustration';
 
 interface AboutUsProps {
   onNavigate?: (view: View) => void;
@@ -48,14 +51,7 @@ export default function AboutUs({ onNavigate }: AboutUsProps) {
 
               {/* Frame Container */}
               <div className="bg-white dark:bg-slate-900 p-4 lg:p-6 rounded-[3rem] shadow-2xl shadow-indigo-100 dark:shadow-none border border-slate-100 dark:border-slate-800 overflow-hidden">
-                <div className="relative aspect-[4/5] lg:aspect-[5/6] rounded-[2.5rem] overflow-hidden group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1200" 
-                    alt="Team working" 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
+                <AboutIllustration />
               </div>
 
               {/* Decorative bottom orbs */}
@@ -150,13 +146,9 @@ export default function AboutUs({ onNavigate }: AboutUsProps) {
                 style={{ backgroundImage: 'radial-gradient(#6366f1 2px, transparent 2px)', backgroundSize: '16px 16px' }} 
               />
               <div className="bg-white dark:bg-slate-900 p-4 lg:p-6 rounded-[3rem] shadow-2xl shadow-indigo-100 dark:shadow-none border border-slate-100 dark:border-slate-800 overflow-hidden">
-                <div className="relative aspect-[4/5] lg:aspect-[5/6] rounded-[2.5rem] overflow-hidden group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" 
-                    alt="Cloud Resellers Dashboard" 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 transition-opacity grayscale hover:grayscale-0"
-                    referrerPolicy="no-referrer"
-                  />
+                <div className="relative aspect-[4/5] lg:aspect-[5/6] rounded-[2.5rem] overflow-hidden group bg-slate-50 dark:bg-slate-950">
+                  <CloudSolutionsIllustration type="azure" />
+                  <div className="absolute inset-0 bg-indigo-600/5 group-hover:bg-transparent transition-all duration-500 pointer-events-none" />
                 </div>
               </div>
             </motion.div>
@@ -176,13 +168,9 @@ export default function AboutUs({ onNavigate }: AboutUsProps) {
                 style={{ backgroundImage: 'radial-gradient(#6366f1 2px, transparent 2px)', backgroundSize: '16px 16px' }} 
               />
               <div className="bg-white dark:bg-slate-900 p-4 lg:p-6 rounded-[3rem] shadow-2xl shadow-indigo-100 dark:shadow-none border border-slate-100 dark:border-slate-800 overflow-hidden">
-                <div className="relative aspect-[4/5] lg:aspect-[5/6] rounded-[2.5rem] overflow-hidden group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200" 
-                    alt="SaaS Distribution" 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 grayscale hover:grayscale-0"
-                    referrerPolicy="no-referrer"
-                  />
+                <div className="relative aspect-[4/5] lg:aspect-[5/6] rounded-[2.5rem] overflow-hidden group bg-slate-50 dark:bg-slate-950">
+                   <BundlingIllustration />
+                   <div className="absolute inset-0 bg-indigo-600/5 group-hover:bg-transparent transition-all duration-500 pointer-events-none" />
                 </div>
               </div>
             </motion.div>
@@ -265,6 +253,88 @@ export default function AboutUs({ onNavigate }: AboutUsProps) {
                   And much...much more
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Testimonials Section */}
+          <div className="mb-32">
+            <div className="text-center mb-16">
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-[0.2em] mb-4"
+              >
+                SUCCESS STORIES
+              </motion.div>
+              <h2 className="text-[27px] md:text-[33px] font-black text-slate-900 dark:text-white mb-4 tracking-tight">What Our Partners Say</h2>
+              <p className="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">Hear from the industry leaders who are transforming their business with Xtributor's automation.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  quote: "Xtributor has completely overhauled how we handle our Microsoft 365 licensing. What used to take hours of manual effort is now fully automated and error-free.",
+                  author: "Sarah Jenkins",
+                  role: "Cloud Operations Manager",
+                  company: "Nexus Solutions",
+                  image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
+                },
+                {
+                  quote: "The billing automation platform is a game-changer. We've seen a 40% reduction in billing disputes and our customers love the self-service marketplace.",
+                  author: "David Chen",
+                  role: "Director of Product",
+                  company: "SaaS Ventures",
+                  image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200"
+                },
+                {
+                  quote: "As an ISV, bundling our services with major cloud providers was always a nightmare. Xtributor made the integration seamless and scalable.",
+                  author: "Elena Rodriguez",
+                  role: "Chief Technology Officer",
+                  company: "DataFlow Systems",
+                  image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200"
+                }
+              ].map((testimonial, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -10 }}
+                  className="bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-xl shadow-indigo-100/10 dark:shadow-none flex flex-col h-full relative"
+                >
+                  <div className="absolute top-8 right-8 text-indigo-500/10 dark:text-indigo-400/10">
+                    <svg width="45" height="36" viewBox="0 0 45 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.25 36C8.125 36 5.5 35.0312 3.375 33.0938C1.25 31.1562 0.1875 28.5625 0.1875 25.3125C0.1875 22.1875 1.09375 19.3438 2.90625 16.7812C4.71875 14.1562 7.71875 11.2188 11.9062 7.96875C12.5312 7.53125 13.0625 7.15625 13.5 6.84375C13.9375 6.53125 14.1562 6.1875 14.1562 5.8125C14.1562 5.5625 14.0625 5.34375 13.875 5.15625C13.6875 4.96875 13.4375 4.875 13.125 4.875C12.75 4.875 12.3125 5 11.8125 5.25C11.3125 5.5 10.75 5.84375 10.125 6.28125L8.4375 2.15625C9.4375 1.40625 10.5 0.8125 11.625 0.375C12.75 -0.0625 13.875 -0.28125 15 -0.28125C17.1875 -0.28125 18.9688 0.3125 20.3438 1.5C21.7812 2.625 22.5 4.25 22.5 6.375C22.5 9.0625 21.6875 12.0312 20.0625 15.2812C18.4375 18.5312 15.5 22.7188 11.25 27.8438V36H11.25ZM33.75 36C30.625 36 28 35.0312 25.875 33.0938C23.75 31.1562 22.6875 28.5625 22.6875 25.3125C22.6875 22.1875 23.5938 19.3438 25.4062 16.7812C27.2188 14.1562 30.2188 11.2188 34.4062 7.96875C35.0312 7.53125 35.5625 7.15625 36 6.84375C36.4375 6.53125 36.6562 6.1875 36.6562 5.8125C36.6562 5.5625 36.5625 5.34375 36.375 5.15625C36.1875 4.96875 35.9375 4.875 35.625 4.875C35.25 4.875 34.8125 5 34.3125 5.25C33.8125 5.5 33.25 5.84375 32.625 6.28125L30.9375 2.15625C31.9375 1.40625 33 0.8125 34.125 0.375C35.25 -0.0625 36.375 -0.28125 37.5 -0.28125C39.6875 -0.28125 41.4688 0.3125 42.8438 1.5C44.2812 2.625 45 4.25 45 6.375C45 9.0625 44.1875 12.0312 42.5625 15.2812C40.9375 18.5312 38 22.7188 33.75 27.8438V36H33.75Z" />
+                    </svg>
+                  </div>
+                  
+                  <div className="flex-1">
+                    <p className="text-slate-600 dark:text-slate-300 font-bold leading-relaxed italic mb-8 relative z-10 text-lg">
+                      "{testimonial.quote}"
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-4 mt-8 pt-8 border-t border-slate-100 dark:border-slate-800">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.author} 
+                      className="w-14 h-14 rounded-2xl object-cover ring-4 ring-indigo-50 dark:ring-indigo-900/20"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div>
+                      <h4 className="font-black text-slate-900 dark:text-white text-sm tracking-tight">{testimonial.author}</h4>
+                      <div className="text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest leading-none mt-1">
+                        {testimonial.role}
+                      </div>
+                      <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mt-1">
+                        {testimonial.company}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
 

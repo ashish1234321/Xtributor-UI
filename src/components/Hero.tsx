@@ -10,6 +10,7 @@ import { View } from '../types';
 
 import { BackgroundAnimation } from './BackgroundAnimation';
 import { InteractiveBackground } from './InteractiveBackground';
+import { HeroIllustration } from './HeroIllustration';
 
 interface HeroProps {
   onNavigate: (view: View) => void;
@@ -160,12 +161,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-slate-100 dark:bg-slate-900/10 rounded-full blur-3xl opacity-50"></div>
               
               <div className="relative bg-slate-50 dark:bg-slate-900 p-2 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 backdrop-blur-sm overflow-hidden group">
-                <img 
-                  src={SLIDES[current].image} 
-                  alt={SLIDES[current].badge} 
-                  className="w-full h-[450px] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
+                <HeroIllustration index={current} />
                 <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900/40 via-transparent to-transparent pointer-events-none"></div>
               </div>
             </motion.div>

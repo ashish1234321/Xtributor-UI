@@ -10,6 +10,8 @@ import {
 import { BackgroundAnimation } from './BackgroundAnimation';
 import { useState } from 'react';
 
+import { CloudSolutionsIllustration } from './CloudSolutionsIllustration';
+
 export default function CloudSellers() {
   const toolkitFeatures = [
     { title: "Multi Disti Connect", description: "Integrate APIs from Crayon, Ingram Micro, and more.", icon: Grid },
@@ -363,28 +365,23 @@ export default function CloudSellers() {
                 { 
                   title: "Dynamics 365 Billing", 
                   desc: "Microsoft Dynamics 365 brings together ERP, CRM, and productivity tools. Enable Dynamics 365 billing automation with Xtributor's powerful platform built by industry veterans.",
-                  image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
+                  type: 'dynamics' as const
                 },
                 { 
                   title: "Azure Billing", 
                   desc: "Microsoft Azure is the fastest-growing cloud solution globally. Onboard Azure customers, provision services instantly, and manage the complete billing automation.",
-                  image: "https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&q=80&w=800"
+                  type: 'azure' as const
                 },
                 { 
                   title: "Office 365 Billing", 
                   desc: "Cater to potential customers with simplified billing and subscription management. save time, costs, and get rid of numerous operational challenges.",
-                  image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800"
+                  type: 'office' as const
                 }
               ].map((item, i) => (
                 <div key={i} className="group overflow-hidden rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl transition-all h-full flex flex-col">
-                   <div className="aspect-video relative overflow-hidden">
-                      <img 
-                        src={item.image} 
-                        alt={item.title} 
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" 
-                        referrerPolicy="no-referrer"
-                      />
-                      <div className="absolute inset-0 bg-indigo-600/10 group-hover:bg-transparent transition-all" />
+                   <div className="aspect-video relative overflow-hidden bg-slate-50 dark:bg-slate-950">
+                      <CloudSolutionsIllustration type={item.type} />
+                      <div className="absolute inset-0 bg-indigo-600/5 group-hover:bg-transparent transition-all pointer-events-none" />
                    </div>
                    <div className="p-8 flex-1 flex flex-col">
                       <h3 className="text-xl font-black text-slate-900 dark:text-white mb-4 tracking-tight uppercase leading-tight">{item.title}</h3>

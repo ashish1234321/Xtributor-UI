@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { BackgroundAnimation } from './BackgroundAnimation';
 import { useState } from 'react';
+import { BundlingIllustration } from './BundlingIllustration';
 
 export default function B2BSaaS() {
   const toolkitFeatures = [
@@ -302,13 +303,9 @@ export default function B2BSaaS() {
                     className="relative"
                   >
                     <div className="absolute -inset-4 bg-gradient-to-tr from-indigo-600/20 to-violet-600/20 blur-3xl rounded-full opacity-50" />
-                    <div className="relative rounded-[3.5rem] overflow-hidden border-8 border-white dark:border-slate-800 shadow-2xl group">
-                      <img 
-                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" 
-                        alt="Product Bundling" 
-                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-indigo-600/10 group-hover:bg-transparent transition-all duration-500" />
+                    <div className="relative rounded-[3.5rem] overflow-hidden border-8 border-white dark:border-slate-800 shadow-2xl group min-h-[400px] bg-slate-50 dark:bg-slate-950">
+                      <BundlingIllustration />
+                      <div className="absolute inset-0 bg-indigo-600/5 group-hover:bg-transparent transition-all duration-500 pointer-events-none" />
                       
                       {/* Floating Badge */}
                       <motion.div 

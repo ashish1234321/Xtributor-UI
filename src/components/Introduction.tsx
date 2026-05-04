@@ -4,8 +4,9 @@
  */
 
 import { motion } from 'motion/react';
-import { ArrowRight, Zap } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { BackgroundAnimation } from './BackgroundAnimation';
+import { AboutIllustration } from './AboutIllustration';
 
 export default function Introduction() {
   return (
@@ -29,14 +30,7 @@ export default function Introduction() {
 
             {/* Frame Container */}
             <div className="bg-white dark:bg-slate-900 p-4 lg:p-6 rounded-[3rem] shadow-2xl shadow-indigo-100 dark:shadow-none border border-slate-100 dark:border-slate-800 overflow-hidden">
-              <div className="relative aspect-[4/5] lg:aspect-[5/6] rounded-[2.5rem] overflow-hidden group">
-                <img 
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1200" 
-                  alt="Team working" 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
+              <AboutIllustration />
             </div>
 
             {/* Decorative bottom orbs */}
